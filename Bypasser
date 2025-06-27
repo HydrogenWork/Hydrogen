@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrogen Bypasser | Key System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Animated background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particles {
+            position: absolute;
+            display: flex;
+            padding: 0 20px;
+            width: 100%;
+            height: 100%;
+            justify-content: space-around;
+            bottom: -70px;
+        }
+
+        .particles span {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background: #4fc3dc;
+            box-shadow: 0 0 0 10px #4fc3dc44,
+                0 0 50px #4fc3dc,
+                0 0 100px #4fc3dc;
+            border-radius: 50%;
+            animation: animate 15s linear infinite;
+            animation-duration: calc(125s / var(--i));
+        }
+
+        .particles span:nth-child(even) {
+            background: #ff2d75;
+            box-shadow: 0 0 0 10px #ff2d7544,
+                0 0 50px #ff2d75,
+                0 0 100px #ff2d75;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(120vh) scale(0) rotate(0deg);
+            }
+            20% {
+                transform: translateY(100vh) scale(1) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-50vh) scale(0.5) rotate(360deg);
+            }
+        }
+
+        /* Content container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo and header */
+        .logo {
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo i {
+            font-size: 5rem;
+            color: #4fc3dc;
+            text-shadow: 0 0 20px rgba(79, 195, 220, 0.7);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #4fc3dc, #ff2d75);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #b0c4de;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(79, 195, 220, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .typewriter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4fc3dc, #ff2d75);
+            animation: border-animate 3s linear infinite;
+        }
+
+        .typewriter-content {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .line {
+            margin: 0.5rem 0;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        #line1 {
+            color: #4fc3dc;
+        }
+
+        #line2 {
+            color: #ff2d75;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.8rem;
+            background-color: white;
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+        }
+
+        /* Features */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            width: 250px;
+            border: 1px solid rgba(79, 195, 220, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: #4fc3dc;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ff2d75;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #b0c4de;
+        }
+
+        /* Discord button */
+        .discord-btn {
+            background: linear-gradient(135deg, #5865F2, #8a2be2);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            margin: 2rem 0;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .discord-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8a2be2, #5865F2);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .discord-btn:hover::before {
+            opacity: 1;
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
+        }
+
+        .discord-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            color: #b0c4de;
+            font-size: 0.9rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes border-animate {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .line {
+                font-size: 1.4rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .typewriter {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .line {
+                font-size: 1.2rem;
+            }
+            
+            .discord-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="particles">
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-bolt"></i>
+        </div>
+        
+        <div class="header">
+            <h1>HYDROGEN BYPASSER</h1>
+            <p>The ultimate key system bypass solution for Hydrogen macOS Roblox exploits</p>
+        </div>
+        
+        <div class="typewriter">
+            <div class="typewriter-content">
+                <div class="line" id="line1"></div>
+                <div class="line" id="line2"></div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-key"></i>
+                <h3>No Key System</h3>
+                <p>Forget about complicated key systems. We've eliminated the hassle for you.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Bypass</h3>
+                <p>Advanced bypass technology that keeps you protected and undetected.</p>
+            </div>
+            
+            <div class="feature">
+                <i class="fas fa-rocket"></i>
+                <h3>Lightning Fast</h3>
+                <p>Experience the fastest exploit execution with our optimized system.</p>
+            </div>
+        </div>
+        
+        <a href="https://discord.gg/AuqSxydFRb" target="_blank" class="discord-btn">
+            <i class="fab fa-discord"></i>
+            Join Our Discord
+        </a>
+        
+        <footer>
+            <p>© 2025 Hydrogen Bypasser | The ultimate solution for bypassing key systems</p>
+        </footer>
+    </div>
+
+    <script>
+        // Typewriter effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const line1 = "Hydrogen Best bypasser key system that bypasses hydrogen macos roblox exploit just for you";
+            const line2 = "fuck key system we got you join at discord.gg/AuqSxydFRb";
+            
+            const line1Element = document.getElementById('line1');
+            const line2Element = document.getElementById('line2');
+            
+            let index1 = 0;
+            let index2 = 0;
+            let cursorVisible = true;
+            
+            function typeLine1() {
+                if (index1 < line1.length) {
+                    line1Element.innerHTML = line1.substring(0, index1 + 1) + '<span class="cursor"></span>';
+                    index1++;
+                    setTimeout(typeLine1, 50);
+                } else {
+                    line1Element.innerHTML = line1;
+                    setTimeout(typeLine2, 500);
+                }
+            }
+            
+            function typeLine2() {
+                if (index2 < line2.length) {
+                    line2Element.innerHTML = line2.substring(0, index2 + 1) + '<span class="cursor"></span>';
+                    index2++;
+                    setTimeout(typeLine2, 30);
+                } else {
+                    line2Element.innerHTML = line2;
+                }
+            }
+            
+            // Start the typewriter effect
+            setTimeout(typeLine1, 1000);
+            
+            // Cursor blink effect
+            setInterval(() => {
+                if (index1 >= line1.length && index2 >= line2.length) {
+                    const cursor = document.querySelector('.cursor');
+                    if (cursor) {
+                        cursor.style.visibility = cursorVisible ? 'visible' : 'hidden';
+                        cursorVisible = !cursorVisible;
+                    }
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
