@@ -19,7 +19,7 @@ Welcome to the official GitHub for the Hydrogen macOS Roblox exploit. This proje
 
 You can get keys in our Discord server. We have bypassed the Hydrogen macOS Roblox exploit key system. GG Hydrogen dev, do better.
 
-👉 [Join the Discord](discord.ggTv9Qz7U6hQ)
+👉 [Join the Discord](https://discord.gg/Tv9Qz7U6hQ)
 
 Find support, announcements, and more. Read the rules before posting.
 
